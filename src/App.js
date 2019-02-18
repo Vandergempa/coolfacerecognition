@@ -126,7 +126,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input })
-     fetch('http://localhost:3001/imageurl', {
+     fetch('https://gentle-ocean-22283.herokuapp.com/imageurl', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -136,7 +136,7 @@ class App extends Component {
     .then(response => response.json())
     .then(response => {
       if (response && 'top_row' in response.outputs[0].data.regions[0].region_info.bounding_box) {
-        fetch('http://localhost:3001/image', {
+        fetch('https://gentle-ocean-22283.herokuapp.com/image', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
