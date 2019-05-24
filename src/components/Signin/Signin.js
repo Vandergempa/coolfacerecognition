@@ -26,6 +26,8 @@ class Signin extends React.Component {
 		})
 		 	.then(response => response.json())
       .then(user => {
+		  // We have to check for user.id otherwise even with the error a string is returned 
+		  // which is true for javascript
         if (user.id) {
           this.props.loadUser(user);
           this.props.onRouteChange('home');
